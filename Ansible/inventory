@@ -1,0 +1,14 @@
+[master]
+52.215.184.89
+
+[slave]
+3.252.214.119
+
+# app private ip
+[app]
+10.0.3.156  # app private ip
+
+[app:vars]
+ansible_user = ubuntu
+ansible_ssh_private_key_file = ../ssh-key.pem
+ansible_ssh_common_args = "-o ProxyCommand=\"ssh -i ../ssh-key.pem ubuntu@3.254.124.37 -W %h:%p\""    # bastion public ip
